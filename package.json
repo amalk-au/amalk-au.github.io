@@ -1,0 +1,22 @@
+{
+  "name": "amalk-au.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.1+sha512.664074abc367d2c9324fdc18037097ce0a8f126034160f709928e9e9f95d98714347044e5c3164d65bd5da6c59c6be362b107546292a8eecb7999196e5ce58fa",
+  "devDependencies": {
+    "@eslint/css": "^0.14.1",
+    "@eslint/js": "^9.39.2",
+    "@eslint/json": "^0.14.0",
+    "eslint": "^9.39.2",
+    "globals": "^16.5.0"
+  }
+}
