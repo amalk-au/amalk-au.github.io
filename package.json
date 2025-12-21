@@ -1,7 +1,7 @@
 {
   "name": "amalk-au.github.io",
   "version": "1.0.0",
-  "description": "",
+  "description": "www.amalk.au Website Source Code",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
