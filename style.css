@@ -62,7 +62,9 @@ h1 {
 /* Footer Styling */
 footer {
   text-align: center;
+  font-size: 0.9rem;
   padding: 1rem 1.25rem;
   background: #ffef77;
   color: #000000;
+  border-top: 1px solid #000;
 }
