@@ -2,3 +2,22 @@ h1 {
   font-size: 2rem;
   color: #535bf2;
 }
+
+/* Navigation Bar Styling */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #007bff;
+}
