@@ -41,5 +41,12 @@ h1 {
     5vw,
     3rem
   ); /* Minimum 1.5rem, Preferred 5vw, Maximum 3rem */
-  color: #535bf2;
+  color: #000746;
+}
+
+header {
+  text-align: center;
+  padding: 1rem 1.25rem;
+  background: #fff0e0;
+  color: white;
 }
