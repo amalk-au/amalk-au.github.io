@@ -1,10 +1,21 @@
 /* Base Styles */
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Takes full height of the screen */
   font-family: sans-serif;
   line-height: 1.6;
   margin: 0;
   color: #333;
   background-color: #f4f4f4;
+}
+
+/* Header Styling */
+header {
+  text-align: center;
+  padding: 1rem 1.25rem;
+  background: #fff0e0;
+  color: white;
 }
 
 /* Navigation Bar Styling */
@@ -34,6 +45,10 @@ nav a:hover {
   color: #007bff;
 }
 
+main {
+  flex: 1; /* This "grows" to fill all available space, pushing the footer down */
+}
+
 /* Heading Styling */
 h1 {
   font-size: clamp(
@@ -44,9 +59,10 @@ h1 {
   color: #000746;
 }
 
-header {
+/* Footer Styling */
+footer {
   text-align: center;
   padding: 1rem 1.25rem;
-  background: #fff0e0;
-  color: white;
+  background: #ffef77;
+  color: #000000;
 }
