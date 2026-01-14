@@ -82,10 +82,36 @@ h1 {
 
 /* Footer Styling */
 footer {
-  text-align: center;
+  /* text-align: center;
+   */
+  display: flex;
   font-size: 0.9rem;
   padding: 1rem 1.25rem;
   background: #ffef77;
   color: #000000;
   border-top: 1px solid #000;
+  justify-content: space-between;
+}
+
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.25rem; /* This is 20px (20 / 16 = 1.25) */
+}
+
+footer a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #007bff;
+}
+
+footer p {
+  margin: 0; /*This will keep the footer text aligned with the links */
 }
