@@ -14,16 +14,16 @@ body {
 header {
   text-align: center;
   padding: 1rem 1.25rem;
-  background: #fff0e0;
+  background: #ffffff;
   color: #ffffff;
 }
 
 /* Navigation Bar Styling */
 
 nav {
-  background: #fff;
+  background: #fef8f8;
   padding: 1rem 5%;
-  box-shadow: 0 2px 5px #ff4d00;
+  box-shadow: 0 2px 5px #f48251;
 }
 
 nav ul {
