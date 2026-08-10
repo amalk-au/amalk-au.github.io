@@ -31,6 +31,7 @@
     <!-- Fallback Icon for compatibility -->
 
     <link rel="stylesheet" href="./css/style.css">
+
     <script src="./js/main.js" defer></script>
 
     <!-- Google tag (gtag.js) -->
@@ -44,14 +45,22 @@
         <ul>
           <li>
             <a
-              href="https://github.com/amalk-au?tab=repositories"
-              target="_blank"
+            href="#about"
+            target="_self"
+            title="About Amal"
+            aria-label="About Amal"
+            >About</a>
+          </li>
+          <li>
+            <a
+              href="#projects"
+              target="_self"
               title="Software Engineering Portfolio"
               aria-label="Software Engineering Portfolio"
               >Projects</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a
               href="https://github.com/amalk-au/tech-lexicon"
               target="_blank"
@@ -59,8 +68,8 @@
               aria-label="Tech Reference Manual"
               >TechLexicon</a
             >
-          </li>
-          <li>
+          </li> -->
+          <!-- <li>
             <a
               href="https://amalk.au/weather-app-js/"
               target="_blank"
@@ -68,14 +77,14 @@
               aria-label="Weather App"
               >Weather</a
             >
-          </li>
+          </li> -->
 
           <li>
             <a
-              href="https://www.linkedin.com/in/amalk-au/"
-              target="_blank"
-              title="LinkedIn"
-              aria-label="LinkedIn"
+              href="#contact"
+              target="_self"
+              title="Contact"
+              aria-label="Contact"
               >Contact</a
             >
           </li>
@@ -84,7 +93,7 @@
     </header>
     <main>
       <section class="grid-layout">
-        <div class="item">
+        <div class="item" id="about">
           <h1>Amal Kariyawasam, Full Stack Software Engineer</h1>
 
           <p>
@@ -142,7 +151,7 @@
           </ul>
         </div>
         <div class="item">
-          <h3>Projects</h3>
+          <h3 id="projects">Projects</h3>
           <p>
             Over the years, I’ve developed a range of software and electronics
             projects. The best way to explore them, see how they work, or even
@@ -156,7 +165,7 @@
     <footer>
       <p>&copy 2026, Amal K.</p>
 
-      <ul>
+      <ul id="contact">
         <li>
           <a href="https://www.linkedin.com/in/amalk-au/" target="_blank"
             >LinkedIn</a
