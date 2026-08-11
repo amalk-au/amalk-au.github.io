@@ -67,6 +67,14 @@ main {
   background-color: #ffffff;
 }
 
+.about-div {
+  display:flex;
+  flex-direction: column;
+  flex:1;
+  box-shadow: 0 0 0.5rem #ffafa1;
+
+
+}
 /* Main layouts */
 .grid-layout {
   display: grid;
