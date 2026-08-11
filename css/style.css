@@ -60,6 +60,22 @@ nav a:focus {
   outline: none;
 }
 
+ul{
+display:flex;
+flex-direction: column;
+/* flex-wrap: wrap; */
+gap:1rem;
+list-style-type: none;
+/* text-align: center; */
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+
 main {
   flex: 1; /* This "grows" to fill all available space, pushing the footer down */
   text-align: center;
