@@ -34,7 +34,7 @@ nav {
   background: #fefefe;
   padding: 1rem 5%;
   border-radius: 1rem;
-  box-shadow: 0 0.0rem 0.5rem #f8885f;
+  box-shadow: 0 0 0.5rem #f8885f;
 
 }
 
@@ -107,10 +107,12 @@ footer {
   justify-content: space-between;
   font-size: 0.9rem;
   padding: 1rem 1.25rem;
-  background: #ffef77;
+  background: #ffffff;
   color: #000000;
   /* border-top: 1px solid #4a4a4a; */
-  box-shadow: inset -3px 20px 20px 5px #ffffff;
+  /* box-shadow: inset -3px 20px 20px 5px #ffffff; */
+  box-shadow: 0 0 0.3rem #f8885f;
+
 }
 
 footer ul {
