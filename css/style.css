@@ -69,7 +69,7 @@ main {
 /* Main layouts */
 .grid-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: auto;
   gap: 2.5rem;
   padding: 2.5rem 5%;
   max-width: 90vw;
