@@ -69,14 +69,18 @@ nav a:focus {
   color: var(--colour-link-hover);
   outline: none;
 }
+.about-div-class {
+  display:flex;
+  flex-direction: column;
+  flex:1;
+  box-shadow: 0 0 0.5rem var(--colour-about-shadow);
+}
 
-ul{
+.about-div-class ul{
   list-style-type: none;
-/* display:flex; */
-/* flex-direction: column; */
-/* flex-wrap: wrap; */
-/* gap:1rem; */
-/* text-align: center; */
+  text-align: left;
+  margin:10px;
+  padding:5px;
 }
 
 a {
@@ -92,12 +96,7 @@ main {
   background-color: var(--colour-background);
 }
 
-.about-div {
-  display:flex;
-  flex-direction: column;
-  flex:1;
-  box-shadow: 0 0 0.5rem var(--colour-about-shadow);
-}
+
 /* Main layouts */
 .grid-layout {
   display: grid;
