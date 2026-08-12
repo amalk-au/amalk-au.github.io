@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -30,34 +30,40 @@
     <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
     <!-- Fallback Icon for compatibility -->
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
+
     <script src="./js/main.js" defer></script>
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRNH508H0T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DRNH508H0T');
-</script>
-
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DRNH508H0T"
+    ></script>
+    <script src="./js/gtag.js"></script>
   </head>
   <body>
     <header>
       <nav>
-        <ul>
+        <menu>
           <li>
             <a
-              href="https://github.com/amalk-au?tab=repositories"
-              target="_blank"
+              href="#about-id"
+              target="_self"
+              title="About Amal"
+              aria-label="About Amal"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              target="_self"
               title="Software Engineering Portfolio"
               aria-label="Software Engineering Portfolio"
               >Projects</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a
               href="https://github.com/amalk-au/tech-lexicon"
               target="_blank"
@@ -65,8 +71,8 @@
               aria-label="Tech Reference Manual"
               >TechLexicon</a
             >
-          </li>
-          <li>
+          </li> -->
+          <!-- <li>
             <a
               href="https://amalk.au/weather-app-js/"
               target="_blank"
@@ -74,104 +80,128 @@
               aria-label="Weather App"
               >Weather</a
             >
-          </li>
+          </li> -->
 
           <li>
             <a
-              href="https://www.linkedin.com/in/amalk-au/"
-              target="_blank"
-              title="LinkedIn"
-              aria-label="LinkedIn"
+              href="#contact"
+              target="_self"
+              title="Contact"
+              aria-label="Contact"
               >Contact</a
             >
           </li>
-        </ul>
+        </menu>
       </nav>
     </header>
     <main>
-      <section class="grid-layout">
-        <div class="item">
-          <h1>Amal Kariyawasam, Full Stack Software Engineer</h1>
+      <section class="hero">
+        <h1>Hi, I'm Amal.</h1>
+        <h2>Full Stack Software Engineer</h2>
+        <h3>
+          Electronics Engineering · Finance · Open Source Software · Linux
+        </h3>
 
-          <p>
-            With a career spanning Software Engineering, Electronics Engineering
-            and Finance across the UK, Sri Lanka, and Australia, I bring a
-            multidisciplinary perspective to Full Stack Software Engineering. I
-            specialise in solving niche, real world-problems by bridging complex
-            technical requirements with clear, high-level business goals.
-          </p>
-          <p>
-            My approach is grounded in the first principles of Engineering,
-            building systems that are simple, efficient, and built to last. I
-            prioritise foundational web technologies such as JavaScript, HTML,
-            and CSS for their performance, clarity, and longevity. On top of
-            these fundamentals, I work extensively with modern tools and
-            frameworks including React, Node.js, PostgreSQL, using them
-            deliberately rather than by default. By understanding what happens
-            beneath the abstractions, I build software that is secure,
-            resilient, maintainable, and fast by design.
-          </p>
-          <p>
-            This foundation allows me to work effectively in multidisciplinary
-            and multicultural teams, collaborating across a wide range of
-            business functions from sales and operations to executive
-            leadership, and translating complexity into solutions that deliver
-            lasting value.
-          </p>
+        <p>
+          I solve niche, real world problems by bridging complex technical
+          requirements with clear business goals. I build practical, resilient
+          software with a first principles approach understanding the
+          fundamentals, keeping complexity under control, and choosing
+          technology deliberately.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects">View My Work</a>
+          <a href="#contact">Get in Touch</a>
         </div>
-        <div class="item">
-          <h2>Interests</h2>
+      </section>
+      <section class="about-class" id="about-id">
+        <h2>About</h2>
+        <p>
+          I enjoy building practical, meaningful software, with a particular
+          focus on web-based applications where good engineering can have a
+          direct and lasting impact.
+        </p>
+        <p>
+          I am a firm believer in continuous self-improvement, whether in
+          communication, business, management, or software development. I value
+          living in a time where technology, when used ethically, can
+          significantly improve people's lives.
+        </p>
+        <p>
+          I'm particularly interested in how LLMs and AI can enhance
+          productivity and improve the way we work and build software.
+        </p>
+
+        <p>
+          I also believe strongly in understanding the fundamentals of the
+          technologies I use. Frameworks evolve, but core web technologies such
+          as JavaScript, HTML, and CSS endure. This belief in simplicity and
+          performance is reflected in this website, which is built without a
+          frontend framework and relies on foundational web technologies.
+        </p>
+
+        <section class="tech-stack-div">
+          <h2>Tech Stack</h2>
           <ul>
             <li>
-              I enjoy building practical, meaningful software, with a strong
-              focus on web based applications, which I find both exciting and
-              impactful.
+              <strong>Frontend:</strong> JavaScript (ES6+), TypeScript, React,
+              Next.js, HTML5, CSS3, Tailwind CSS, WCAG Accessibility, Component
+              Based UI Design.
             </li>
             <li>
-              I am a firm believer in continuous self improvement, whether in
-              communication, business, management, or software development. I
-              value living in a time where technology, when used ethically, can
-              significantly improve people’s lives.
+              <strong>Backend:</strong> Node.js, Express.js, REST APIs,
+              Middleware Design, PostgreSQL, Prisma ORM, JWT/Session
+              Authentication, Bcrypt Hashing.
             </li>
             <li>
-              I enjoy learning new technologies that enhance productivity, with
-              my current focus on using LLM/AI to improve how I work and build
-              software.
+              <strong>DevOps & Systems:</strong> Linux (Ubuntu/Fedora), Docker,
+              Git/GitHub, GitHub Actions (CI/CD), QEMU/KVM, VirtualBox, Bash
+              Scripting, Unit Testing.
             </li>
             <li>
-              I strongly believe in developing a deep understanding of core web
-              technologies such as JavaScript, HTML, and CSS. Frameworks evolve
-              and change, but these foundations endure. This belief in
-              simplicity and performance is why this website is built without
-              frameworks, relying instead on foundational web technologies.
+              <strong>AI & Applied Engineering:</strong> Local LLM Inference
+              (Ollama, Qwen 3.5), OpenClaw Homelab Deployment, Infrastructure
+              Virtualisation, AI assisted Workflows (Claude, Gemini).
             </li>
           </ul>
-        </div>
+        </section>
+      </section>
+      <section class="grid-layout">
         <div class="item">
-          <h3>Projects</h3>
+          <h2 id="projects">Projects</h2>
           <p>
-            Over the years, I’ve developed a range of software and electronics
-            projects. The best way to explore them, see how they work, or even
-            fork them for your own use is on my
-            <a href="https://github.com/amalk-au" target="_blank">GitHub</a>
-            account.
+            Over the years, I've built a range of software and electronics
+            projects spanning web applications, systems, infrastructure, and
+            hardware. Explore my projects on
+            <a href="https://github.com/amalk-au" target="_blank">GitHub</a>,
+            where you can see how they work, browse the source code, and fork
+            projects for your own use.
           </p>
         </div>
+      </section>
+      <section class="contact-div">
+        <h2>Let's connect</h2>
+        <p>
+          Interested in working together, discussing a project, or just talking
+          engineering?
+        </p>
+        <ul id="contact">
+          <li>
+            <a href="https://www.linkedin.com/in/amalk-au/" target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/amalk-au" target="_blank">GitHub</a>
+          </li>
+        </ul>
       </section>
     </main>
     <footer>
       <p>&copy 2026, Amal K.</p>
-
-      <ul>
-        <li>
-          <a href="https://www.linkedin.com/in/amalk-au/" target="_blank"
-            >LinkedIn</a
-          >
-        </li>
-        <li>
-          <a href="https://github.com/amalk-au" target="_blank">GitHub</a>
-        </li>
-      </ul>
+      <p>
+        Built with <span class="heart">♥</span> using HTML, CSS & JavaScript
+      </p>
     </footer>
   </body>
 </html>
