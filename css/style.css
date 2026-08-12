@@ -83,7 +83,8 @@ footer a:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 0 0.5rem var(--colour-hero-shadow);
+  border-radius: 1.5rem;
+  box-shadow: 0 0.25rem 0.375rem var(--colour-hero-shadow);
   padding: 10px;
 }
 
@@ -102,14 +103,16 @@ footer a:focus {
   color: var(--colour-hero-text);
 }
 
-.about-div-class {
+.about-class {
   display: flex;
   flex-direction: column;
   flex: 1;
-  box-shadow: 0 0 0.5rem var(--colour-about-shadow);
+  border-radius: 1.5rem;
+  box-shadow: 0 0.25rem 0.375rem var(--colour-about-shadow);
+  margin:1rem;
 }
 
-.about-div-class ul,
+.about-class ul,
 .tech-stack-div ul,
 .contact-div ul {
   list-style-type: none;
