@@ -225,3 +225,20 @@ footer p {
 .heart {
   color: red;
 }
+
+.tech-stack-category {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tech-logos {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.svgLogos {
+  width: 2rem;
+  height: 2rem;
+}
