@@ -249,3 +249,14 @@ footer p {
   width: 2rem;
   height: 2rem;
 }
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  gap: 2rem;
+  width: 4rem;
+  height: 4rem;
+}
