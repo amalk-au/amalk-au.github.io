@@ -165,8 +165,9 @@ main {
 .tech-stack-category {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  /* flex-wrap:wrap; */
+  justify-content: left;
+  gap: 0.5rem;
 }
 
 .tech-logos {
