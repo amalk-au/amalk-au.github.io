@@ -252,6 +252,7 @@ footer ul {
 
 footer p {
   margin: 0; /*This will keep the footer text aligned with the links */
+  font-size: 0.5rem;
 }
 
 footer a:hover,
@@ -261,5 +262,4 @@ footer a:focus {
 
 .heart {
   color: red;
-  font-size: 1.2rem;
 }
