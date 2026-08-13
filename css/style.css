@@ -16,7 +16,7 @@
   --colour-about-shadow: #ffafa1;
   --colour-grid-item: #c8e5ff;
   --colour-link-hover: #007bff;
-  --colour-footer-shadow: #f8885f;
+  --colour-footer-shadow: #ffff10;
 }
 
 html {
@@ -196,16 +196,14 @@ h3 {
 /* Footer Styling */
 footer {
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  /* justify-content: space-between; */
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
   font-size: 0.8rem;
-  padding: 1rem 2.25rem;
+  padding: 1rem 1rem;
   background: var(--colour-background);
   color: var(--colour-text);
-  /* border-top: 1px solid #4a4a4a; */
-  /* box-shadow: inset -3px 20px 20px 5px #ffffff; */
   box-shadow: 0 0 0.3rem var(--colour-footer-shadow);
 }
 
@@ -224,6 +222,7 @@ footer p {
 
 .heart {
   color: red;
+  font-size: 1.2rem;
 }
 
 .tech-stack-div {
