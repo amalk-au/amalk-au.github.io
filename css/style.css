@@ -235,7 +235,8 @@ footer p {
 .tech-stack-category {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content:center;
+  gap: 1rem;
 }
 
 .tech-logos {
