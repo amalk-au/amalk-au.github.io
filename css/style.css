@@ -1,3 +1,52 @@
+/* =================================
+   1. Custom fonts
+   ================================= */
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../assets/fonts/ubuntu/ubuntu-latin-400-normal.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../assets/fonts/ubuntu/ubuntu-latin-400-italic.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../assets/fonts/ubuntu/ubuntu-latin-500-normal.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../assets/fonts/ubuntu/ubuntu-latin-700-normal.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../assets/fonts/ubuntu/ubuntu-latin-ext-400-normal.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Base Styles */
 *,
 *::before,
@@ -26,7 +75,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  font-family: system-ui, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   line-height: 1.5;
   min-height: 100vh; /* Takes full height of the screen */
   margin: 0; /* removes default margins */
@@ -41,18 +90,21 @@ h1 {
     5vw,
     3rem
   ); /* Minimum 1.5rem, Preferred 5vw, Maximum 3rem */
+  font-weight: 700;
   line-height: 1.2;
   color: var(--colour-text);
 }
 
 h2 {
   text-align: center;
+  font-weight: 700;
   padding: 0.1rem;
   margin: 0.1rem;
 }
 
 h3 {
   text-align: center;
+  font-weight: 500;
   padding: 0.1rem;
   margin: 0.1rem;
 }
