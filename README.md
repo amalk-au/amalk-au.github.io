@@ -153,11 +153,13 @@ Live Preview automatically refreshes the page when changes are saved, providing 
 
 ## Development
 
-### Code Quality
+## Code Quality
+
+The project uses ESLint, Prettier and Playwright to maintain code quality, consistent formatting and reliable website behaviour.
+
+### ESLint
 
 ESLint is configured to lint JavaScript, JSON, CSS and HTML files using ESLint's flat configuration system.
-
-**ESLint**
 
 Run linting before committing changes:
 
@@ -177,7 +179,7 @@ Update ESLint to the latest version:
 pnpm add -D eslint@latest
 ```
 
-**Prettier**
+### Prettier
 
 Prettier is used to maintain consistent code formatting across the project.
 
@@ -205,7 +207,47 @@ Update Prettier to the latest version:
 pnpm add -D prettier@latest
 ```
 
-### Development Workflow
+### Playwright
+
+[Playwright](https://playwright.dev/) is used for end-to-end (E2E) testing to verify that the website works correctly across different browser engines.
+
+Run the complete test suite:
+
+```
+pnpm test
+```
+
+Run tests in a specific browser:
+
+```
+pnpm exec playwright test --project=chromium
+pnpm exec playwright test --project=firefox
+pnpm exec playwright test --project=webkit
+```
+
+Run tests with a visible browser window:
+
+```
+pnpm test:headed
+```
+
+Open Playwright's interactive UI:
+
+```
+pnpm test:ui
+```
+
+View the HTML test report:
+
+```
+pnpm test:report
+```
+
+Playwright starts a local static server automatically when running tests. No build step is required.
+
+For more information about the test structure, setup and available commands, see [`tests/README.md`](tests/README.md).
+
+## Development Workflow
 
 **Always** follow a feature branch workflow when making changes to the website. The `main` branch represents the production version of the website and is used for deployment to GitHub Pages.
 
@@ -226,11 +268,12 @@ pnpm add -D prettier@latest
 
 3.  **Implement and test your changes:**
 
-    Test the website in the browser and run the project's quality checks.
+    Test the website in the browser and run all project quality checks:
 
     ```
     pnpm lint
     pnpm format:check
+    pnpm test
     ```
 
     If formatting changes are needed, run:
@@ -238,6 +281,8 @@ pnpm add -D prettier@latest
     ```
     pnpm format
     ```
+
+    Fix any linting or test failures before committing.
 
 4.  **Commit your changes:**
 
