@@ -207,7 +207,7 @@ pnpm add -D prettier@latest
 
 ### Development Workflow
 
-Follow a feature branch workflow when updating website:
+**Always** follow a feature branch workflow when making changes to the website. The `main` branch represents the production version of the website and is used for deployment to GitHub Pages.
 
 1.  **Update the local** `**main**` **branch:**
 
@@ -226,10 +226,17 @@ Follow a feature branch workflow when updating website:
 
 3.  **Implement and test your changes:**
 
-    Test the website in the browser and run ESLint.
+    Test the website in the browser and run the project's quality checks.
 
     ```
     pnpm lint
+    pnpm format:check
+    ```
+
+    If formatting changes are needed, run:
+
+    ```
+    pnpm format
     ```
 
 4.  **Commit your changes:**
@@ -247,9 +254,38 @@ Follow a feature branch workflow when updating website:
 
 6.  **Open a Pull Request:**
 
-    Create a Pull Request on GitHub targeting `main` for review.
+    Create a Pull Request on GitHub targeting `main` for review. Ensure all required checks pass before merging.
 
-**Merge Strategy:** Prefer **Squash and merge** for feature branches to maintain a clean and concise commit history on `main`.
+7.  **Merge the Pull Request:**
+
+    Prefer **Squash and merge** to maintain a clean and concise commit history on `main`.
+
+8.  **Delete the feature branch:**
+
+    After merging, delete the remote feature branch on GitHub (GitHub may offer this option directly in the merged Pull Request).
+
+    Update your local `main` branch:
+
+    ```
+    git switch main
+    git pull origin main
+    ```
+
+    Delete the local feature branch:
+
+    ```
+    git branch -d feature/navbar
+    ```
+
+    Optionally, prune stale remote-tracking branches:
+
+    ```
+    git fetch --prune
+    ```
+
+9.  **Deploy to GitHub Pages:**
+
+    Once the Pull Request is merged into `main`, GitHub Pages publishes the updated website.
 
 Keep changes focused, maintainable and consistent with the existing project structure.
 
