@@ -3,45 +3,45 @@
    ================================= */
 
 @font-face {
-  font-family: "Ubuntu";
-  src: url("../assets/fonts/ubuntu/ubuntu-latin-400-normal.woff2")
-    format("woff2");
+  font-family: 'Ubuntu';
+  src: url('../assets/fonts/ubuntu/ubuntu-latin-400-normal.woff2')
+    format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Ubuntu";
-  src: url("../assets/fonts/ubuntu/ubuntu-latin-400-italic.woff2")
-    format("woff2");
+  font-family: 'Ubuntu';
+  src: url('../assets/fonts/ubuntu/ubuntu-latin-400-italic.woff2')
+    format('woff2');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Ubuntu";
-  src: url("../assets/fonts/ubuntu/ubuntu-latin-500-normal.woff2")
-    format("woff2");
+  font-family: 'Ubuntu';
+  src: url('../assets/fonts/ubuntu/ubuntu-latin-500-normal.woff2')
+    format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Ubuntu";
-  src: url("../assets/fonts/ubuntu/ubuntu-latin-700-normal.woff2")
-    format("woff2");
+  font-family: 'Ubuntu';
+  src: url('../assets/fonts/ubuntu/ubuntu-latin-700-normal.woff2')
+    format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Ubuntu";
-  src: url("../assets/fonts/ubuntu/ubuntu-latin-ext-400-normal.woff2")
-    format("woff2");
+  font-family: 'Ubuntu';
+  src: url('../assets/fonts/ubuntu/ubuntu-latin-ext-400-normal.woff2')
+    format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -75,7 +75,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   line-height: 1.5;
   min-height: 100vh; /* Takes full height of the screen */
   margin: 0; /* removes default margins */
