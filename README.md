@@ -155,9 +155,7 @@ Live Preview automatically refreshes the page when changes are saved, providing 
 
 ### Code Quality
 
-ESLint is configured to check JavaScript, JSON and CSS files.
-
-The project uses ESLint's flat configuration system.
+ESLint is configured to lint JavaScript, JSON, CSS and HTML files using ESLint's flat configuration system.
 
 Run linting before committing changes:
 
@@ -170,6 +168,29 @@ To automatically fix supported issues:
 ```
 pnpm lint:fix
 ```
+
+#### Updating ESLint
+
+Check the installed ESLint version:
+
+```
+pnpm exec eslint --version
+```
+
+Update ESLint to the latest release:
+
+```
+pnpm add -D eslint@latest
+```
+
+Verify the update and run linting:
+
+```
+pnpm exec eslint --version
+pnpm lint
+```
+
+Ensure Node.js meets ESLint's version requirements before upgrading.
 
 ### Development Workflow
 
