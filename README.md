@@ -157,6 +157,8 @@ Live Preview automatically refreshes the page when changes are saved, providing 
 
 ESLint is configured to lint JavaScript, JSON, CSS and HTML files using ESLint's flat configuration system.
 
+**ESLint**
+
 Run linting before committing changes:
 
 ```
@@ -169,28 +171,39 @@ To automatically fix supported issues:
 pnpm lint:fix
 ```
 
-#### Updating ESLint
-
-Check the installed ESLint version:
-
-```
-pnpm exec eslint --version
-```
-
-Update ESLint to the latest release:
+Update ESLint to the latest version:
 
 ```
 pnpm add -D eslint@latest
 ```
 
-Verify the update and run linting:
+**Prettier**
+
+Prettier is used to maintain consistent code formatting across the project.
+
+Install Prettier:
 
 ```
-pnpm exec eslint --version
-pnpm lint
+pnpm add -D prettier
 ```
 
-Ensure Node.js meets ESLint's version requirements before upgrading.
+Format the project:
+
+```
+pnpm format
+```
+
+Check formatting without modifying files:
+
+```
+pnpm format:check
+```
+
+Update Prettier to the latest version:
+
+```
+pnpm add -D prettier@latest
+```
 
 ### Development Workflow
 
