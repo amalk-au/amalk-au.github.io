@@ -12,7 +12,8 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "check": "pnpm lint && pnpm format:check && pnpm test"
   },
   "keywords": [],
   "author": "",

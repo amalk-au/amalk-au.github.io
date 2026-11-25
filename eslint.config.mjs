@@ -7,12 +7,43 @@ import { defineConfig } from 'eslint/config';
 import prettier from 'eslint-config-prettier/flat';
 
 export default defineConfig([
-  // JavaScript
+  // Ignore generated folders/files
+  {
+    ignores: ['**/playwright-report/**', '**/test-results/**'],
+  },
+
+  // Browser JavaScript
   {
     files: ['**/*.{js,mjs,cjs}'],
+    ignores: ['playwright.config.cjs', 'tests/**/*.cjs'],
     plugins: { js },
     extends: ['js/recommended'],
-    languageOptions: { globals: globals.browser },
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
+
+  // Node.js (Playwright configuration)
+  {
+    files: ['playwright.config.cjs'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
+
+  // Playwright tests (Node.js + browser globals)
+  {
+    files: ['tests/**/*.cjs'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
+      },
+    },
   },
 
   // JSON
@@ -31,14 +62,13 @@ export default defineConfig([
     extends: ['css/recommended'],
   },
 
-  // HTML (ESLint 10 configuration)
+  // HTML
   {
     files: ['**/*.html'],
     plugins: { html },
     extends: ['html/recommended'],
     language: 'html/html',
     rules: {
-      // Match Prettier's self-closing syntax for HTML void elements.
       'html/require-closing-tags': ['error', { selfClosing: 'always' }],
     },
   },
@@ -46,6 +76,7 @@ export default defineConfig([
   // Disable formatting rules handled by Prettier
   prettier,
 
+  // HTML formatting rules handled by Prettier
   {
     files: ['**/*.html'],
     rules: {
