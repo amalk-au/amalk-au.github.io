@@ -103,3 +103,17 @@ test('images have alternative text', async ({ page }) => {
     expect(image.alt, `Image is missing alt text: ${image.src}`).not.toBeNull();
   }
 });
+
+//Website has no horizontal overflow : This catches common responsive design problems.
+
+test('homepage has no horizontal overflow', async ({ page }) => {
+  await page.goto('/');
+
+  const hasHorizontalOverflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth >
+      document.documentElement.clientWidth,
+  );
+
+  expect(hasHorizontalOverflow).toBe(false);
+});
