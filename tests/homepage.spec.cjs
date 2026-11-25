@@ -26,3 +26,15 @@ test('homepage has no uncaught JavaScript errors', async ({ page }) => {
 
   expect(errors).toEqual([]);
 });
+
+test('navigation links are visible', async ({ page }) => {
+  await page.goto('/');
+
+  const navigation = page.locator('nav');
+  await expect(navigation).toBeVisible();
+
+  const links = navigation.locator('a');
+  await expect(links.first()).toBeVisible();
+
+  expect(await links.count()).toBeGreaterThan(0);
+});
