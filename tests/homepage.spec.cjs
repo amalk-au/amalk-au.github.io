@@ -86,3 +86,20 @@ test('all images load successfully', async ({ page }) => {
     expect(loaded, `Image at index ${i} failed to load`).toBe(true);
   }
 });
+
+// Images have alternative text : This is an important accessibility check.
+
+test('images have alternative text', async ({ page }) => {
+  await page.goto('/');
+
+  const images = await page.locator('img').evaluateAll((elements) =>
+    elements.map((image) => ({
+      src: image.src,
+      alt: image.getAttribute('alt'),
+    })),
+  );
+
+  for (const image of images) {
+    expect(image.alt, `Image is missing alt text: ${image.src}`).not.toBeNull();
+  }
+});
