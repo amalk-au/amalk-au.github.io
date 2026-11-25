@@ -65,3 +65,24 @@ test('internal links do not return 404', async ({ page }) => {
     );
   }
 });
+
+// Test that images load successfully
+
+test('all images load successfully', async ({ page }) => {
+  await page.goto('/');
+
+  const images = page.locator('img');
+  const count = await images.count();
+
+  for (let i = 0; i < count; i++) {
+    const image = images.nth(i);
+
+    await expect(image).toBeVisible();
+
+    const loaded = await image.evaluate(
+      (element) => element.complete && element.naturalWidth > 0,
+    );
+
+    expect(loaded, `Image at index ${i} failed to load`).toBe(true);
+  }
+});
