@@ -117,3 +117,24 @@ test('homepage has no horizontal overflow', async ({ page }) => {
 
   expect(hasHorizontalOverflow).toBe(false);
 });
+
+// Website works on mobile viewport
+
+test('homepage renders correctly on mobile', async ({ page }) => {
+  await page.setViewportSize({
+    width: 375,
+    height: 812,
+  });
+
+  await page.goto('/');
+
+  await expect(page.locator('body')).toBeVisible();
+
+  const hasHorizontalOverflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth >
+      document.documentElement.clientWidth,
+  );
+
+  expect(hasHorizontalOverflow).toBe(false);
+});
