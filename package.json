@@ -4,11 +4,16 @@
   "description": "www.amalk.au Website Source Code",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "serve . --listen tcp://127.0.0.1:4173 --no-clipboard",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "check": "pnpm lint && pnpm format:check && pnpm test"
   },
   "keywords": [],
   "author": "",
@@ -20,9 +25,11 @@
     "@eslint/json": "^0.14.0",
     "@html-eslint/eslint-plugin": "^0.68.0",
     "@html-eslint/parser": "^0.68.0",
+    "@playwright/test": "^1.65.1",
     "eslint": "^10.15.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.5.0",
-    "prettier": "^3.10.1"
+    "prettier": "^3.10.1",
+    "serve": "^14.2.8"
   }
 }

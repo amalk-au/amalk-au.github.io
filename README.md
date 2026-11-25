@@ -153,11 +153,13 @@ Live Preview automatically refreshes the page when changes are saved, providing 
 
 ## Development
 
-### Code Quality
+## Code Quality
+
+The project uses ESLint, Prettier and Playwright to maintain code quality, consistent formatting and reliable website behaviour.
+
+### ESLint
 
 ESLint is configured to lint JavaScript, JSON, CSS and HTML files using ESLint's flat configuration system.
-
-**ESLint**
 
 Run linting before committing changes:
 
@@ -177,7 +179,7 @@ Update ESLint to the latest version:
 pnpm add -D eslint@latest
 ```
 
-**Prettier**
+### Prettier
 
 Prettier is used to maintain consistent code formatting across the project.
 
@@ -205,9 +207,49 @@ Update Prettier to the latest version:
 pnpm add -D prettier@latest
 ```
 
-### Development Workflow
+### Playwright
 
-Follow a feature branch workflow when updating website:
+[Playwright](https://playwright.dev/) is used for end-to-end (E2E) testing to verify that the website works correctly across different browser engines.
+
+Run the complete test suite:
+
+```
+pnpm test
+```
+
+Run tests in a specific browser:
+
+```
+pnpm exec playwright test --project=chromium
+pnpm exec playwright test --project=firefox
+pnpm exec playwright test --project=webkit
+```
+
+Run tests with a visible browser window:
+
+```
+pnpm test:headed
+```
+
+Open Playwright's interactive UI:
+
+```
+pnpm test:ui
+```
+
+View the HTML test report:
+
+```
+pnpm test:report
+```
+
+Playwright starts a local static server automatically when running tests. No build step is required.
+
+For more information about the test structure, setup and available commands, see [`tests/README.md`](tests/README.md).
+
+## Development Workflow
+
+**Always** follow a feature branch workflow when making changes to the website. The `main` branch represents the production version of the website and is used for deployment to GitHub Pages.
 
 1.  **Update the local** `**main**` **branch:**
 
@@ -226,11 +268,21 @@ Follow a feature branch workflow when updating website:
 
 3.  **Implement and test your changes:**
 
-    Test the website in the browser and run ESLint.
+    Test the website in the browser and run all project quality checks:
 
     ```
     pnpm lint
+    pnpm format:check
+    pnpm test
     ```
+
+    If formatting changes are needed, run:
+
+    ```
+    pnpm format
+    ```
+
+    Fix any linting or test failures before committing.
 
 4.  **Commit your changes:**
 
@@ -247,9 +299,38 @@ Follow a feature branch workflow when updating website:
 
 6.  **Open a Pull Request:**
 
-    Create a Pull Request on GitHub targeting `main` for review.
+    Create a Pull Request on GitHub targeting `main` for review. Ensure all required checks pass before merging.
 
-**Merge Strategy:** Prefer **Squash and merge** for feature branches to maintain a clean and concise commit history on `main`.
+7.  **Merge the Pull Request:**
+
+    Prefer **Squash and merge** to maintain a clean and concise commit history on `main`.
+
+8.  **Delete the feature branch:**
+
+    After merging, delete the remote feature branch on GitHub (GitHub may offer this option directly in the merged Pull Request).
+
+    Update your local `main` branch:
+
+    ```
+    git switch main
+    git pull origin main
+    ```
+
+    Delete the local feature branch:
+
+    ```
+    git branch -d feature/navbar
+    ```
+
+    Optionally, prune stale remote-tracking branches:
+
+    ```
+    git fetch --prune
+    ```
+
+9.  **Deploy to GitHub Pages:**
+
+    Once the Pull Request is merged into `main`, GitHub Pages publishes the updated website.
 
 Keep changes focused, maintainable and consistent with the existing project structure.
 
