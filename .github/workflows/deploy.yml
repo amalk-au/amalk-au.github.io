@@ -1,64 +1,68 @@
 name: Test and Deploy Website
 
 on:
-  # Run tests and deploy when main is updated
   push:
     branches:
       - main
 
-  # Run tests when a PR targets main
   pull_request:
     branches:
       - main
 
-  # Allow manual execution
   workflow_dispatch:
 
+# Default permissions for jobs.
 permissions:
   contents: read
 
+# Avoid overlapping deployments.
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
 jobs:
-  # ==================================
+  # ----------------------------------------
   # JOB 1: TEST
-  # ==================================
+  # ----------------------------------------
   test:
     name: Run Tests
     runs-on: ubuntu-latest
 
     steps:
-      # Get repository code
+      # Get repository files.
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      # Install pnpm
+      # Install pnpm.
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
 
-      # Install Node.js
+      # Install latest Node.js LTS.
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: lts/*
+          node-version: 'lts/*'
+          check-latest: true
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
-      # Install dependencies
+      # Install project dependencies.
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Run ESLint
+      # Run ESLint.
       - name: Run ESLint
         run: pnpm lint
 
-      # Install Playwright browser
+      # Install Chromium, Firefox and WebKit.
       - name: Install Playwright browsers
-        run: pnpm exec playwright install --with-deps chromium
+        run: pnpm exec playwright install --with-deps
 
-      # Execute Playwright tests
+      # Run Playwright tests.
       - name: Run Playwright tests
         run: pnpm test
 
-      # Save test report, even when tests fail
+      # Save the HTML report even if tests fail.
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
@@ -67,16 +71,16 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  # ==================================
+  # ----------------------------------------
   # JOB 2: DEPLOY
-  # ==================================
+  # ----------------------------------------
   deploy:
     name: Deploy to GitHub Pages
 
-    # Only deploy if testing succeeds
+    # Deployment only runs after successful tests.
     needs: test
 
-    # Only deploy pushes to main, not PRs
+    # Only deploy pushes to main, not pull requests.
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     runs-on: ubuntu-latest
@@ -91,15 +95,15 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      # Get repository code
+      # Get repository files.
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      # Configure GitHub Pages
+      # Configure GitHub Pages.
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      # Prepare deployment directory
+      # Prepare the website for deployment.
       - name: Prepare website files
         run: |
           mkdir _site
@@ -110,13 +114,13 @@ jobs:
 
           touch _site/.nojekyll
 
-      # Upload website files
+      # Upload website files as a Pages artifact.
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
-      # Deploy website
+      # Deploy to GitHub Pages.
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
