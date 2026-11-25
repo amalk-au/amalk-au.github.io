@@ -6,8 +6,17 @@ module.exports = defineConfig({
   // Run tests in parallel where possible.
   fullyParallel: true,
 
-  // Generate a readable HTML report.
-  reporter: 'html',
+  // Prevent accidentally committing test.only in CI.
+  forbidOnly: !!process.env.CI,
+
+  // Retry failed tests in CI.
+  retries: process.env.CI ? 2 : 0,
+
+  // Limit workers in CI to avoid overloading the runner.
+  workers: process.env.CI ? 2 : undefined,
+
+  // Generate readable reports.
+  reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'html',
 
   // Shared settings for all browser projects.
   use: {
@@ -16,7 +25,7 @@ module.exports = defineConfig({
     screenshot: 'only-on-failure',
   },
 
-  // Run the tests in these browser engines.
+  // Run tests in all three browser engines.
   projects: [
     {
       name: 'chromium',
@@ -32,7 +41,7 @@ module.exports = defineConfig({
     },
   ],
 
-  // Start the static site before tests and stop it afterwards.
+  // Start the website before tests and stop it afterwards.
   webServer: {
     command: 'pnpm exec serve . --listen tcp://127.0.0.1:4173 --no-clipboard',
     url: 'http://127.0.0.1:4173',
