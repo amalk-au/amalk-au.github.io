@@ -138,3 +138,17 @@ test('homepage renders correctly on mobile', async ({ page }) => {
 
   expect(hasHorizontalOverflow).toBe(false);
 });
+
+// Page has essential SEO metadata
+test('homepage has essential SEO metadata', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page).toHaveTitle(/\S+/);
+
+  const description = page.locator('meta[name="description"]');
+
+  await expect(description).toHaveAttribute('content', /\S+/);
+
+  const canonical = page.locator('link[rel="canonical"]');
+  await expect(canonical).toHaveCount(1);
+});
