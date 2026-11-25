@@ -1,0 +1,126 @@
+name: Test and Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+# Default permissions for jobs.
+permissions:
+  contents: read
+
+# Avoid overlapping deployments.
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  # ----------------------------------------
+  # JOB 1: TEST
+  # ----------------------------------------
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Get repository files.
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      # Install pnpm.
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      # Install latest Node.js LTS.
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      # Install project dependencies.
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Run ESLint.
+      - name: Run ESLint
+        run: pnpm lint
+
+      # Install Chromium, Firefox and WebKit.
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps
+
+      # Run Playwright tests.
+      - name: Run Playwright tests
+        run: pnpm test
+
+      # Save the HTML report even if tests fail.
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  # ----------------------------------------
+  # JOB 2: DEPLOY
+  # ----------------------------------------
+  deploy:
+    name: Deploy to GitHub Pages
+
+    # Deployment only runs after successful tests.
+    needs: test
+
+    # Only deploy pushes to main, not pull requests.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # Get repository files.
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      # Configure GitHub Pages.
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # Prepare the website for deployment.
+      - name: Prepare website files
+        run: |
+          mkdir _site
+
+          cp index.html 404.html CNAME robots.txt sitemap.xml _site/
+
+          cp -r assets css js _site/
+
+          touch _site/.nojekyll
+
+      # Upload website files as a Pages artifact.
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      # Deploy to GitHub Pages.
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
