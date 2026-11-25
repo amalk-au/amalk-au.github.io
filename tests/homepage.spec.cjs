@@ -152,3 +152,20 @@ test('homepage has essential SEO metadata', async ({ page }) => {
   const canonical = page.locator('link[rel="canonical"]');
   await expect(canonical).toHaveCount(1);
 });
+
+// No failed JavaScript or resource requests
+test('homepage has no failed local resource requests', async ({ page }) => {
+  const failedRequests = [];
+
+  page.on('requestfailed', (request) => {
+    const url = new URL(request.url());
+
+    if (url.origin === 'http://127.0.0.1:4173') {
+      failedRequests.push(request.url());
+    }
+  });
+
+  await page.goto('/');
+
+  expect(failedRequests).toEqual([]);
+});
